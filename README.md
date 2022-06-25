@@ -17,8 +17,11 @@ Rspec
 
 Rodar testes:
 bundle exec rspec spec/models/user_spec.rb
+bundle exec rspec spec/models/weapon_spec.rb
 bundle exec rspec spec/requests/users_spec.rb
 bundle exec rspec spec/requests/enemies_spec.rb
+bundle exec rspec spec/requests/weapons_spec.rb
+
 
 Iniciando:
 rspec --init
@@ -63,7 +66,6 @@ Desafio #2:
         level atual da arma (començando em 1)
 
 
-rails g controller weapon create update destroy --no-helper --no-assets --no-controller-specs --no-view-specs --skip-routes
 rails g model weapon name:string power_base:integer power_step:integer level:integer
 rails db:migrate
 rails db:migrate RAILS_ENV=test
@@ -114,6 +116,7 @@ Desafio #3:
         Verificar se todos os detalhes da arma estão presentes
             (name, description, level, power_base, power_step, current_power e title)
 
+rails g controller weapon index create delete show --no-helper --no-assets --no-controller-specs --no-view-specs --skip-routes
 
 Desafio #4:
 

@@ -1,8 +1,9 @@
 FactoryBot.define do
   factory :weapon do
-    name { "MyString" }
-    power_base { 1 }
-    power_step { 1 }
-    level { 1 }
+    name { FFaker::Lorem.word }
+    power_base { FFaker::Random.rand(1..9999) }
+    power_step { 100 }
+    level { FFaker::Random.rand(1..99) }
+    description { FFaker::Lorem.phrase }
   end
 end

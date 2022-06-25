@@ -10,6 +10,7 @@ RSpec.describe "Enemies", type: :request do
       it "returns status code 200" do
         expect(response).to have_http_status(200)
       end
+
       it "updates the enemy" do
         expect(enemy.reload).to have_attributes(enemy_attributes)
       end
@@ -25,6 +26,7 @@ RSpec.describe "Enemies", type: :request do
       it "returns status code 404" do
         expect(response).to have_http_status(404)
       end
+
       it "returns a not found message" do
         expect(response.body).to match(/Couldn't find Enemy/)
       end
@@ -39,16 +41,19 @@ RSpec.describe "Enemies", type: :request do
       it "returns status code 200" do
         expect(response).to have_http_status(204)
       end
+
       it "destroy the record" do
         expect { enemy.reload }.to raise_error ActiveRecord::RecordNotFound
       end
     end
+
     context "when the enemy does not exist" do
       before(:each) { delete "/enemies/0" }
       
       it "returns status code 404" do
         expect(response).to have_http_status(404)
       end
+
       it "returns a not found message" do
         expect(response.body).to match(/Couldn't find Enemy/)
       end
